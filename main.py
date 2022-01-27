@@ -12,8 +12,6 @@ screen = pygame.display.set_mode([WIDTH, HEIGHT])
 running = True
 
 
-
-
 while running:
     events = pygame.event.get()
     screen.fill((0,0,0))
@@ -23,6 +21,7 @@ while running:
 
     pygame.draw.rect(screen, color, pygame.Rect(WIDTH/2, HEIGHT/2, 123, 456))
 
+    
     #pygame.draw.rect()
 
 

@@ -1,0 +1,5 @@
+TO DO
+1. Size sprites
+2. move sprite with WASD keys
+3. research stuff for movement on lines
+4.

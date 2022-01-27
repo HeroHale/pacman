@@ -5,7 +5,6 @@ from Ghost import Ghost
 from Point import Point
 from Player import Player
 
-
 def main():
 
     width = 464
@@ -31,7 +30,7 @@ def main():
 
     all_sprites = pygame.sprite.Group()
     ghost = Ghost(2)
-    player = Player()
+    player = Player(player_controls)
     ghost.rect.x = 130
     ghost.rect.y = 120
     player.rect.x = 130
@@ -49,49 +48,40 @@ def main():
             #then turn the sprite
         if event.type == pygame.KEYDOWN:
             if event.type == pygame.K_UP:
-                player_controls["W"]
+                player_controls["W"] = True
                 #reference value of the dictionary
+            elif event.type == pygame.K_DOWN:
+                player_controls["S"] = True
 
-            if event.type == pygame.K_DOWN:
-                player_controls["S"]
+            elif event.type == pygame.K_LEFT:
+                player_controls["A"] = True
 
-            if event.type == pygame.K_LEFT:
-                player_controls["A"]
-
-            if event.type == pygame.K_RIGHT:
-                player_controls["D"]
-
+            elif event.type == pygame.K_RIGHT:
+                player_controls["D"] = True
 
 
-        if event.type == pygame.KEYUP:
+
+        elif event.type == pygame.KEYUP:
             if event.type == pygame.K_UP:
+                player_controls["W"] = False
 
+            elif event.type == pygame.K_DOWN:
+                player_controls["S"] = False
 
-            if event.type == pygame.K_DOWN:
+            elif event.type == pygame.K_LEFT:
+                player_controls["A"] = False
 
-
-            if event.type == pygame.K_LEFT:
-
-
-            if event.type == pygame.K_RIGHT:
-
+            elif event.type == pygame.K_RIGHT:
+                player_controls["D"] = False
 
 
         window.blit(background, (0, 0))
         clock.tick(60)
-        all_sprites.update(0.25)#the number is there to change the speed of the animation of pacman
+        all_sprites.update(0.24)#the number is there to change the speed of the animation of pacman
         all_sprites.draw(window)
-        player.draw()
         pygame.display.flip()
         pygame.display.update()
-
-
-
-
-
-
-
-
+        window.blit(player.image, (player.x_position, player.y_position))
 
 
 
